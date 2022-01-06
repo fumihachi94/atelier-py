@@ -2,6 +2,17 @@
 
 [python-pptx — python-pptx 0.6.21 documentation](https://python-pptx.readthedocs.io/en/latest/index.html)
 
+---
+
+- [python-pptx tutorial](#python-pptx-tutorial)
+  - [Install](#install)
+  - [Target Python Version](#target-python-version)
+  - [Slide layouts](#slide-layouts)
+  - [Shape list](#shape-list)
+  - [Commentの書き方](#commentの書き方)
+
+---
+
 ## Install 
 
 ```sh
@@ -33,8 +44,8 @@ placeholder.text = "Set your text and etc..."
 | Slide Image                                           | idx | layout               | idx | placeholder           |
 | ----------------------------------------------------- | --- | -------------------- | --- | --------------------- |
 | -                                                     | >   | slide_layouts        | >   | placeholders          |
-| <img src="./img/slide_layouts_idx=0.png" width=200px> | 0   | Title Slide          | 0   | Title                 |
-| ^                                                     | ^   | ^                    | 1   | Subtitle              |
+| <img src="./img/slide_layouts_idx=0.png" width=200px> | 0   | Title Slide          | 0   | Title 1               |
+| ^                                                     | ^   | ^                    | 1   | Subtitle 2            |
 | <img src="./img/slide_layouts_idx=1.png" width=200px> | 1   | Title and Content    | 0   | Title 1               |
 | ^                                                     | ^   | ^                    | 1   | Content Placeholder 2 |
 | <img src="./img/slide_layouts_idx=2.png" width=200px> | 2   | Section Header       | 0   | Title 1               |
