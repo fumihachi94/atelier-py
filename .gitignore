@@ -105,3 +105,6 @@ venv.bak/
 
 # python-pptx
 *.pptx
+
+# vin_extraction
+/vin_extraction/*.txt
