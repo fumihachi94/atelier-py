@@ -11,10 +11,13 @@ import datetime
 logger = getLogger(__name__)
 logger.disabled = False
 
-g_vinpd       = pd.DataFrame()
-g_column_list = []
-g_filepath    = ""
-g_colname     = "ＶＩＮ／プレート打刻情報"
+g_vinpd          = pd.DataFrame()
+g_column_list    = []
+g_filepath       = ""
+g_target_colname = "ＶＩＮ／プレート打刻情報"
+g_base_colname   = "アイデントＮＯ"
+g_opt_conditon   = "8412"
+
 
 # Extract VIN list from select file
 def readVIN(filepath):
@@ -39,18 +42,19 @@ def readVIN(filepath):
                         data.append(r)
 
         # Create pandas data frame and delete VIN duplicate elements. 
-        df = pd.DataFrame(data, columns=g_column_list).drop_duplicates()
+        df = pd.DataFrame(data, columns=g_column_list)
 
         # columnlistbox = tk.Listbox(column_list, listvariable=tk.StringVar(value=g_column_list), height=15,selectmode="single")
         # columnlistbox.pack()
 
-        g_vinpd   = df[g_colname].copy()
+        tmp       = df[df[g_base_colname].str.startswith(g_opt_conditon)]
+        g_vinpd   = tmp[g_target_colname].drop_duplicates().copy()
         logger.info(g_vinpd)
 
         # Create vin list box with scrollbar
         scroll=tk.Scrollbar(frame_list)
         scroll.pack(side=tk.RIGHT,fill="y")
-        list_value = tk.StringVar(value=df[g_colname].tolist())
+        list_value = tk.StringVar(value=g_vinpd.tolist())
         Listbox = tk.Listbox(frame_list, listvariable=list_value, height=15,selectmode="extended",yscrollcommand=scroll.set)
         Listbox.pack(padx=10)
         scroll["command"]=Listbox.yview
