@@ -38,6 +38,12 @@ def getExeFileName(processHandle):
     else:
         return None
 
+def GetWindowRectFromName(TargetWindowTitle:str)-> tuple:
+    TargetWindowHandle = ctypes.windll.user32.FindWindowW(0, TargetWindowTitle)
+    Rectangle = ctypes.wintypes.RECT()
+    ctypes.windll.user32.GetWindowRect(TargetWindowHandle, ctypes.pointer(Rectangle))
+    return (Rectangle.left, Rectangle.top, Rectangle.right, Rectangle.bottom)
+
 
 # --------------------------------
 
@@ -76,10 +82,22 @@ while True:
 
     if pass_window[u'パスワード'].exists():
         print(u'パスワードWindow発見！')
+        print(GetWindowRectFromName(u'パスワード'))
+
+        hchild = win32gui.GetWindow( handle2, win32con.GW_HWNDNEXT)	
+        length = win32gui.SendMessage(hchild, win32con.WM_GETTEXTLENGTH, 0, 0)
+        buff = ctypes.create_unicode_buffer(length + 1)
+        win32gui.SendMessage( hchild, win32con.WM_GETTEXT, length+1, buff)
+        print(buff.value)
+
+        break
+
         file_open_flg = False
         for pw in pwlist:
             if pass_window[u'OK'].exists():
                 pass_window[u'パスワード'].Edit.set_edit_text(pw)
+                print("Line count : ", pass_window[u'パスワード'].Edit.line_count())
+                print("Line count : ", pass_window[u'パスワード'].Edit.get_line(0))
                 pass_window[u'OK'].click()
                 time.sleep(0.3)
                 if pass_window[u'OK'].exists():

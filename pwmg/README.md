@@ -70,3 +70,26 @@ Tool:
 実行ファイルのパスを取得
 
 [python - PythonでプロセスIDから実行ファイルのパスを取得したい - スタック・オーバーフロー](https://ja.stackoverflow.com/questions/62265/python%E3%81%A7%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9id%E3%81%8B%E3%82%89%E5%AE%9F%E8%A1%8C%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E3%83%91%E3%82%B9%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%9F%E3%81%84)
+
+## inspect
+
+> C:\Program Files (x86)\Windows Kits\10\bin\10.0.20348.0\x64
+inspect.exe
+
+## ウィンドウ位置の取得
+
+[Pythonでウィンドウのタイトルから爆速で位置を取得【Windows】 - Qiita](https://qiita.com/ShortArrow/items/409f9695c458433d0744)
+[【tkinter】 画面サイズ・位置の設定方法 - 基礎 【Python】 - 田舎社会人のいろいろ学習記](https://www.python-beginners.com/entry/20210515/1621007804)
+
+
+
+
+
+
+
+
+
+
+
+
+
